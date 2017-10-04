@@ -1,12 +1,17 @@
 module.exports = {
-  up: function(queryInterface, Sequelize, done) {
-    queryInterface.sequelize.query("insert into category(name) values ('sports')")
-    .then(()=>{
-      queryInterface.sequelize.query("insert into category(name) values ('social')")
-      .then(()=>{
-         done();
-      });
-    });
+  up: function(queryInterface, Sequelize) {
+    return queryInterface.bulkInsert('category', [{
+        name: 'Sports'
+      },{
+        name: 'Social'
+      },{
+        name: 'Politics'
+      },{
+        name: 'Art'
+      },{
+        name: 'Cinema'
+      }], {});
+
 
   },
 
