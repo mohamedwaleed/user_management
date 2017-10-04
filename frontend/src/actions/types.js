@@ -1,0 +1,14 @@
+export const CREATE_USER = 'create_user';
+export const GET_GROUPS = 'get_groups';
+export const GET_CATEGORIES = 'get_categories';
+export const CREATE_GROUP = 'create_group';
+export const GET_GROUPS_COUNT = 'get_groups_count';
+export const GET_USERS_COUNT = 'get_users_count';
+export const GET_USERS = 'get_users';
+export const GET_USER = 'get_user';
+export const GET_GROUP = 'get_group';
+export const DELTET_USER = 'delete_user';
+export const DELTET_GROUP = 'delete_group';
+export const JOIN_GROUP = 'join_group';
+export const DISJOIN_GROUP = 'dsijoin_group';
+export const SEARCH = 'search';

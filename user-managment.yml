@@ -1,0 +1,493 @@
+swagger: "2.0"
+info:
+  description: "User mamagement"
+  version: "v1"
+  title: "User managment"
+  contact:
+    name: "Mohamed Waleed Mohamed"
+    email: "mohamedwaleed2012@gmail.com"
+  license:
+    name: "Mohamed Waleed"
+host: "localhost"
+basePath: "/"
+schemes:
+- "http"
+
+paths:
+  /users/:
+    get:
+      summary: Get all users
+      description: get all registered users in the system (may return them paginated if you specify offset and limit)
+      tags:
+       - Users
+      parameters:
+        - in: query
+          name: offset
+          type: integer
+          description: the required start offset
+          required: false
+        - in: query
+          name: limit
+          type: integer
+          description: the number of data required starting from offset
+          required: false
+
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/get-users-response"
+        500:
+          description: An error occured while getting users
+          schema:
+            $ref: "#/definitions/error-response"
+    post:
+      summary: create a user
+      description: create new user
+      tags:
+       - Users
+      parameters:
+        - in: body
+          name: "user"
+          schema:
+              $ref: '#/definitions/user'
+
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/user-response'
+        500:
+          description: An error occured while create new user
+          schema:
+            $ref: "#/definitions/error-response"
+
+  /users/count:
+    get:
+      summary: Get users count
+      description: get users count
+      tags:
+       - Users
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/get-users-count-response"
+        500:
+          description: An error occured while getting the user count
+          schema:
+            $ref: "#/definitions/error-response"
+
+
+  /users/{userId}:
+    delete:
+      summary: delete a user
+      description: delete a user
+      tags:
+       - Users
+      parameters:
+        - in: path
+          type: "integer"
+          name: "userId"
+          required: true
+          description: user id
+
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/boolean-response'
+        500:
+          description: An error occured while deleting a user
+          schema:
+            $ref: "#/definitions/error-response"
+    get:
+      summary: get a user info
+      description: get a user info
+      tags:
+       - Users
+      parameters:
+        - in: path
+          type: "integer"
+          name: "userId"
+          required: true
+          description: user id
+
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/user-response'
+        500:
+          description: An error occured while getting a user info
+          schema:
+            $ref: "#/definitions/error-response"
+
+  /users/{userId}/group/{groupId}:
+    post:
+      summary: join a group
+      description: user number {userId} join group number {groupId}
+      tags:
+       - Users
+      parameters:
+        - in: path
+          type: "integer"
+          name: "userId"
+          required: true
+          description: user id
+        - in: path
+          type: "integer"
+          name: "groupId"
+          required: true
+          description: group id
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/boolean-response'
+        500:
+          description: An error occured while deleting a user
+          schema:
+            $ref: "#/definitions/error-response"
+    delete:
+      summary: disjoin a group
+      description: user number {userId} left group number {groupId}
+      tags:
+       - Users
+      parameters:
+        - in: path
+          type: "integer"
+          name: "userId"
+          required: true
+          description: user id
+        - in: path
+          type: "integer"
+          name: "groupId"
+          required: true
+          description: group id
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/boolean-response'
+        500:
+          description: An error occured while deleting a user
+          schema:
+            $ref: "#/definitions/error-response"
+
+
+
+  /groups/:
+    get:
+      summary: Get all groups
+      description: get all registered groups in the system (may return them paginated if you specify offset and limit)
+      tags:
+       - Groups
+      parameters:
+        - in: query
+          name: offset
+          type: integer
+          description: the required start offset
+          required: false
+        - in: query
+          name: limit
+          type: integer
+          description: the number of data required starting from offset
+          required: false
+
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/get-groups-response"
+        500:
+          description: An error occured while getting groups
+          schema:
+            $ref: "#/definitions/error-response"
+    post:
+      summary: create a group
+      description: create new group
+      tags:
+       - Groups
+      parameters:
+        - in: body
+          name: "group"
+          schema:
+              $ref: '#/definitions/group'
+
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/group-response'
+        500:
+          description: An error occured while create new group
+          schema:
+            $ref: "#/definitions/error-response"
+
+  /groups/count:
+    get:
+      summary: Get groups count
+      description: get groups count
+      tags:
+       - Groups
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/get-groups-count-response"
+        500:
+          description: An error occured while getting the group count
+          schema:
+            $ref: "#/definitions/error-response"
+
+
+  /groups/{groupId}:
+    delete:
+      summary: delete a group
+      description: delete a group
+      tags:
+       - Groups
+      parameters:
+        - in: path
+          type: "integer"
+          name: "groupId"
+          required: true
+          description: group id
+
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/boolean-response'
+        500:
+          description: An error occured while deleting a group
+          schema:
+            $ref: "#/definitions/error-response"
+    get:
+      summary: get a group info
+      description: get a group info
+      tags:
+       - Groups
+      parameters:
+        - in: path
+          type: "integer"
+          name: "groupId"
+          required: true
+          description: group id
+
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/group-response'
+        500:
+          description: An error occured while getting a group info
+          schema:
+            $ref: "#/definitions/error-response"
+
+  /categories/:
+    get:
+      summary: Get all categories
+      description: get all groups categories
+      tags:
+       - Categories
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/get-categories-response"
+        500:
+          description: An error occured while getting categories
+          schema:
+            $ref: "#/definitions/error-response"
+
+  /search/:
+    post:
+      summary: Search in whole system
+      description: basic and advanced search (if searchTerm specified the api will ignore all fields and consider it a basic search)
+      tags:
+       - Search
+      parameters:
+        - in: body
+          name: "searchQuery"
+          schema:
+              $ref: '#/definitions/searchQuery'
+
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/search-response'
+        500:
+          description: An error occured while searching
+          schema:
+            $ref: "#/definitions/error-response"
+
+definitions:
+  error-response:
+    type: "object"
+    properties:
+      error:
+        type: "object"
+        properties:
+          status:
+            type: "integer"
+          message:
+            type: "string"
+  boolean-response:
+    type: "object"
+    properties:
+      data:
+        type: "boolean"
+
+  get-users-response:
+    type: "object"
+    properties:
+      data:
+        type: "array"
+        items:
+          type: "object"
+          $ref: "#/definitions/UserDto"
+
+  user-response:
+    type: "object"
+    properties:
+      data:
+        type: "object"
+        $ref: "#/definitions/UserDto"
+
+
+  get-users-count-response:
+    type: "object"
+    properties:
+      data:
+        type: "integer"
+
+  get-groups-response:
+    type: "object"
+    properties:
+      data:
+        type: "array"
+        items:
+          type: "object"
+          $ref: "#/definitions/GroupDto"
+
+  group-response:
+    type: "object"
+    properties:
+      data:
+        type: "object"
+        $ref: "#/definitions/GroupDto"
+
+
+  get-groups-count-response:
+    type: "object"
+    properties:
+      data:
+        type: "integer"
+
+  get-categories-response:
+    type: "object"
+    properties:
+     data:
+      type: "array"
+      items:
+        type: "object"
+        $ref: "#/definitions/CategoryDto"
+
+  search-response:
+    type: "object"
+    properties:
+      group:
+       type: "object"
+       $ref: "#/definitions/GroupDto"
+      user:
+        type: "object"
+        $ref: "#/definitions/UserDto"
+      category:
+        type: "object"
+        $ref: "#/definitions/CategoryDto"
+
+  UserDto:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      firstName:
+        type: "string"
+      lastName:
+        type: "string"
+      email:
+        type: "string"
+      gender:
+        type: "string"
+      groups:
+        type: "array"
+        items:
+          type: "object"
+          $ref: "#/definitions/GroupDto"
+
+  GroupDto:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      name:
+        type: "string"
+
+  CategoryDto:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      name:
+        type: "string"
+
+  user:
+    type: "object"
+    properties:
+      email:
+        type: "string"
+      firstName:
+        type: "string"
+      lastName:
+        type: "string"
+      gender:
+        type: "string"
+      categoryId:
+        type: "integer"
+
+  group:
+    type: "object"
+    properties:
+      name:
+       type: "string"
+      categoryId:
+        type: "integer"
+
+  category:
+   type: "object"
+   properties:
+    name:
+      type: "string"
+
+  searchQuery:
+    type: "object"
+    properties:
+      group:
+       type: "object"
+       $ref: "#/definitions/group"
+      user:
+        type: "object"
+        $ref: "#/definitions/user"
+      category:
+        type: "object"
+        $ref: "#/definitions/category"
+      searchTerm:
+        type: "string"
+
+
+
+
+  

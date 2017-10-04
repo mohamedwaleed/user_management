@@ -1,0 +1,106 @@
+.control-board{
+  margin-top: 100px;
+  text-align: center;
+  width: 100%;
+  height: 50%;
+}
+
+.btn-section {
+  padding: 10px;
+}
+
+.create-user-form {
+  width: 50%;
+  margin: auto;
+  margin-top:  100px;
+  margin-bottom: 10px;
+}
+
+
+.create-group-form {
+  width: 50%;
+  margin: auto;
+  margin-top:  100px;
+  margin-bottom: 10px;
+}
+
+.groups {
+  width: 100%;
+  margin: auto;
+  margin-top:  100px;
+  margin-bottom: 10px;
+}
+.users {
+  width: 100%;
+  margin: auto;
+  margin-top:  100px;
+  margin-bottom: 10px;
+}
+
+.search_result {
+  width: 100%;
+  margin: auto;
+  margin-top:  100px;
+  margin-bottom: 10px;
+}
+
+.userDetailsSection{
+  margin-top:  100px;
+  margin-bottom: 10px;
+}
+
+.groupUserDetailsSection {
+  margin-top:  100px;
+  margin-bottom: 10px;
+}
+
+.join-group-form {
+  width: 50%;
+  margin: auto;
+  margin-top:  100px;
+  margin-bottom: 10px;
+}
+
+
+.pagination a {
+    cursor: pointer;
+    color: #006194
+}
+
+.pagination.break a {
+    cursor: pointer;
+}
+
+.paginator-area {
+  margin: auto;
+  width: 50%;
+}
+
+.arrowsPaginationDisabled{
+  visibility:hidden
+}
+
+.personal-image {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.left-section {
+    height: 100%;
+    padding: 10px;
+}
+
+.borderless td, .borderless th {
+    border: none;
+}
+
+.break-words {
+  word-break: break-all;
+}
+
+.join {
+  margin: 5px;
+}
+.disjoin {
+  margin: 5px;
+}
