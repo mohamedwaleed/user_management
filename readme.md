@@ -46,7 +46,7 @@ you have the properties that you want to filter on it
 If the parser fails to identify your query it will consider it a basic search
 
 
-# Deploy the backend using dokcker
+# Deploy the backend using docker
 - prerequisite -> docker, docker-compose
 - cd to project directory where docker-compose.yml exists
 - make sure that the port 3000 is free
