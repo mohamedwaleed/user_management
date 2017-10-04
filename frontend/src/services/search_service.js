@@ -11,13 +11,11 @@ class SearchService {
       var keyValueEntity = searchTerms[i].trim().split(':');
       var keyEntity = keyValueEntity[0].trim();
       var valueEntity = keyValueEntity[1].trim().substring(1, keyValueEntity[1].trim().length - 1);
-      console.log(valueEntity);
       if(existingKeys[keyEntity]) {
         throw new Error('Search entity already exists');
       }
       parsedQuery[keyEntity] = {};
       var searchFields = valueEntity.split('and');
-      console.log(searchFields);
       var parsedSearchFields = searchFields.map((keyValueField) => {
         // console.log(keyValueField);
         var keyField = keyValueField.split('=')[0].trim();

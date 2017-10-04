@@ -3,8 +3,6 @@ import Navbar  from './dashboard-feature/navbar';
 import { connect } from 'react-redux';
 import  * as actions from '../actions';
 import { Link } from 'react-router-dom';
-import ReactPaginate from 'react-paginate';
-import Pagination from 'react-js-pagination';
 
 class UserDetails extends Component {
   constructor(props) {

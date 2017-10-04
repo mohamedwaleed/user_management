@@ -19,7 +19,7 @@ class SearchWidget extends Component {
       return (
         <div className={className}>
           <input type={field.type} className={inputClass}  placeholder={field.label}  {...field.input}/>
-          <div className="text-danger">
+          <div className='text-danger'>
             {meta.touched?meta.error:""}
           </div>
         </div>
